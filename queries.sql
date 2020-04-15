@@ -38,3 +38,7 @@ JOIN
     Customer as cust on o.CustomerId = cust.Id
 JOIN Employee as empl on o.EmployeeId = empl.Id 
 
+-- findSteps by scheme_id
+SELECT steps.id, schemes.scheme_name, steps.step_number, steps.instructions
+FROM schemes 
+JOIN steps on steps.scheme_id = schemes.id 
