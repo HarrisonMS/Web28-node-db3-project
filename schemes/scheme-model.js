@@ -30,7 +30,8 @@ const db = knex(knexConfig.development);
 module.exports = {
   find,
   findById,
-  findSteps
+  findSteps,
+  add
 }
 function find() {
   return db('schemes')
@@ -46,4 +47,11 @@ function findSteps(id) {
     .join('schemes as schemes', 'steps.scheme_id', 'schemes.id')
     .where('schemes.id', id)
     .orderBy('steps.step_number', 'asc');
+}
+function add(scheme) {
+  return db('schemes')
+    .insert(scheme, 'id')
+    .then(id  => {
+      return findById(id)
+    });
 }
