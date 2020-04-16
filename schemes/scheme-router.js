@@ -47,10 +47,9 @@ router.get('/:id/steps', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const scheme = req.body;
-console.log(scheme)
-  Schemes.add(scheme)
+  const schemeData = req.body;
 
+  Schemes.add(schemeData)
   .then(scheme => {
     res.status(201).json(scheme);
   })
