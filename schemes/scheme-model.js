@@ -76,7 +76,6 @@ function remove(id) {
 
 function addStep(step, schemeId) {
   step.scheme_id = schemeId;
-
   return db('steps')
     .insert(step, 'id')
     .then(ids => {
