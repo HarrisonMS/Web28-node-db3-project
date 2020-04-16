@@ -54,9 +54,10 @@ function findSteps(id) {
 function add(scheme) {
   return db('schemes')
     .insert(scheme, 'id')
-    .then(id  => {
+    .then(ids  => {
+      const [id] = ids
       return findById(id)
-    });
+    })
 }
 function update(changes, id) { 
   return db('schemes')
